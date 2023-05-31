@@ -16,6 +16,7 @@ struct ListView: View {
     @State private var editMode = EditMode.inactive
     @AppStorage("APP_COLOR") var selection = "Green"
     @AppStorage("STREAK_KEY") var savedStreak = 0
+    @AppStorage("DISPLAY_STREAK") var displayStreak = "0"
     @AppStorage("STREAK_DATE") var savedStreakDate: String?
     var backgroundcolor = Color(#colorLiteral(red: 0.949019134, green: 0.9490200877, blue: 0.9705253243, alpha: 1))
     
@@ -26,7 +27,7 @@ struct ListView: View {
                     NoItemsView()
                 }
                 else {
-                    Text("Current Streak: \(savedStreak) 🔥").bold()
+                    Text("Current Streak: \(displayStreak) ").bold()
                         .foregroundColor(.white)
                         .font(.title2)
                         .frame(height: 45)
@@ -88,12 +89,14 @@ struct ListView: View {
         else if savedStreakDate != currentDate {
             if allChecked {
                 savedStreak += 1
+                displayStreak = "\(savedStreak) 🔥"
                 savedStreakDate = currentDate
                 turnAllFalse(item: &listViewModel.items)
                 toggleValidStreak.toggle()
             }
             else {
                 savedStreak = 0
+                displayStreak = "0"
                 savedStreakDate = currentDate
                 turnAllFalse(item: &listViewModel.items)
                 toggleBrokenStreak.toggle()
