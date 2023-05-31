@@ -83,6 +83,9 @@ struct ListView: View {
             savedStreakDate = currentDate
         }
         else if savedStreakDate == currentDate {
+            return
+        }
+        else if savedStreakDate != currentDate {
             if allChecked {
                 savedStreak += 1
                 savedStreakDate = currentDate
@@ -95,10 +98,6 @@ struct ListView: View {
                 turnAllFalse(item: &listViewModel.items)
                 toggleBrokenStreak.toggle()
             }
-
-        }
-        else if savedStreakDate != currentDate {
-            
         }
     }
     
