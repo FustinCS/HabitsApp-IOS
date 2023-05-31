@@ -2,7 +2,7 @@
 //  Habits_V2App.swift
 //  Habits V2
 //
-//  Created by Justin Jue on 5/27/23.
+//  Created by Justin on 5/27/23.
 //
 
 import SwiftUI

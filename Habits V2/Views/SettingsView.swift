@@ -2,7 +2,7 @@
 //  SettingsView.swift
 //  Habits V2
 //
-//  Created by Justin Jue on 5/28/23.
+//  Created by Justin on 5/28/23.
 //
 
 import SwiftUI
